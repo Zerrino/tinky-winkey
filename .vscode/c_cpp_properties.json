@@ -3,7 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/tinky/includes",
+                "${workspaceFolder}/includes"
             ],
             "defines": [
                 "_DEBUG",

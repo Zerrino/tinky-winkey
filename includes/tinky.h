@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tinky.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 18:17:43 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/24 18:17:43 by marvin           ###   ########.fr       */
+/*   Created: 2025/12/24 18:20:54 by marvin            #+#    #+#             */
+/*   Updated: 2025/12/24 18:53:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tinky-winkey.h"
+#ifndef TINKY_H
+# define TINKY_H
 
-int	main(void)
-{
-	printf("hello world!\n");
-	return (0);
-}
+# include <stdio.h>
+
+#endif

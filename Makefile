@@ -13,31 +13,40 @@
 CC     = cl
 CFLAGS = /nologo /Wall /WX /Iincludes
 
-NAME = tinky-winkey
-EXE  = $(NAME).exe
+NAME_PROG = winkey
+EXE_PROG  = $(NAME_PROG).exe
 
-SRC_DIR = srcs
-OBJ_DIR = .objs
+NAME_SERV = svc
+EXE_SERV  = $(NAME_SERV).exe
 
-SRCS = \
-	$(SRC_DIR)\main.c
+SRC_DIR_SERV = tinky\srcs
+OBJ_DIR_SERV = tinky\.objs
 
-OBJS = \
-	$(OBJ_DIR)\main.obj
+SRC_DIR_PROG = winkey\srcs
+OBJ_DIR_PROG = winkey\.objs
 
-all: $(EXE)
+SRCS_PROG= \
+    $(SRC_DIR_PROG)\main.c \
 
-$(EXE): $(OBJS)
-	$(CC) $(CFLAGS) /Fe$(EXE) $(OBJS)
+SRCS_SERV = \
+    $(SRC_DIR_SERV)\main.c \
 
-$(OBJ_DIR)\main.obj: $(SRC_DIR)\main.c
-	if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
-	$(CC) $(CFLAGS) /c /Fo$(OBJ_DIR)\main.obj $(SRC_DIR)\main.c
+all: $(EXE_SERV) $(EXE_PROG)
+
+$(EXE_SERV): $(SRCS_SERV)
+	if not exist $(OBJ_DIR_SERV) mkdir $(OBJ_DIR_SERV)
+	$(CC) $(CFLAGS) /Fo$(OBJ_DIR_SERV)\ /Fe$(EXE_SERV) $(SRCS_SERV)
+
+$(EXE_PROG): $(SRCS_PROG)
+	if not exist $(OBJ_DIR_PROG) mkdir $(OBJ_DIR_PROG)
+	$(CC) $(CFLAGS) /Fo$(OBJ_DIR_PROG)\ /Fe$(EXE_PROG) $(SRCS_PROG)
 
 clean:
-	-del /Q $(OBJS) 2>nul
+	-del /Q $(OBJ_DIR_SERV)\*.obj 2>nul
+	-del /Q $(OBJ_DIR_PROG)\*.obj 2>nul
 
 fclean: clean
-	-del /Q $(EXE) 2>nul
+	-del /Q $(EXE_SERV) 2>nul
+	-del /Q $(EXE_PROG) 2>nul
 
 re: fclean all
